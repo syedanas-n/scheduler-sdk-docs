@@ -77,26 +77,9 @@ Import the `WebMcpScheduler` module and inject it into the Scheduler to make Web
 
 <script setup>
 import { provide } from 'vue';
-import {
-  ScheduleComponent as EjsSchedule,
-  ViewsDirective as EViews,
-  ViewDirective as EView,
-  Day,
-  Week,
-  WorkWeek,
-  Month,
-  Agenda,
-  WebMcpScheduler
-} from '@syncfusion/ej2-vue-schedule';
+import { ScheduleComponent as EjsSchedule, ViewsDirective as EViews, ViewDirective as EView, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
 
-provide('schedule', [
-  Day,
-  Week,
-  WorkWeek,
-  Month,
-  Agenda,
-  WebMcpScheduler
-]);
+provide('schedule', [Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler]);
 </script>
 ```
 
@@ -131,26 +114,9 @@ An AI assistant can discover these tools and invoke them based on user prompts.
 
 <script setup>
 import { provide } from 'vue';
-import {
-  ScheduleComponent as EjsSchedule,
-  ViewsDirective as EViews,
-  ViewDirective as EView,
-  Day,
-  Week,
-  WorkWeek,
-  Month,
-  Agenda,
-  WebMcpScheduler
-} from '@syncfusion/ej2-vue-schedule';
+import { ScheduleComponent as EjsSchedule, ViewsDirective as EViews, ViewDirective as EView, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
 
-provide('schedule', [
-  Day,
-  Week,
-  WorkWeek,
-  Month,
-  Agenda,
-  WebMcpScheduler
-]);
+provide('schedule', [Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler]);
 </script>
 ```
 
@@ -180,26 +146,9 @@ Use the `webMcpSettings` property to customize how WebMCP tools are exposed to A
 
 <script setup>
 import { provide } from 'vue';
-import {
-  ScheduleComponent as EjsSchedule,
-  ViewsDirective as EViews,
-  ViewDirective as EView,
-  Day,
-  Week,
-  WorkWeek,
-  Month,
-  Agenda,
-  WebMcpScheduler
-} from '@syncfusion/ej2-vue-schedule';
+import { ScheduleComponent as EjsSchedule, ViewsDirective as EViews, ViewDirective as EView, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
 
-provide('schedule', [
-  Day,
-  Week,
-  WorkWeek,
-  Month,
-  Agenda,
-  WebMcpScheduler
-]);
+provide('schedule', [Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler]);
 
 const webMcpSettings = {
   name: 'planner',
@@ -244,26 +193,9 @@ The `beforeWebMcpToolExecute` event exposes multiple properties that let applica
 
 <script setup>
 import { provide } from 'vue';
-import {
-  ScheduleComponent as EjsSchedule,
-  ViewsDirective as EViews,
-  ViewDirective as EView,
-  Day,
-  Week,
-  WorkWeek,
-  Month,
-  Agenda,
-  WebMcpScheduler
-} from '@syncfusion/ej2-vue-schedule';
+import { ScheduleComponent as EjsSchedule, ViewsDirective as EViews, ViewDirective as EView, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
 
-provide('schedule', [
-  Day,
-  Week,
-  WorkWeek,
-  Month,
-  Agenda,
-  WebMcpScheduler
-]);
+provide('schedule', [Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler]);
 
 const webMcpSettings = {
   name: 'planner',
