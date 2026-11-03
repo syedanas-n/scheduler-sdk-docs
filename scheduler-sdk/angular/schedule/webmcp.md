@@ -60,17 +60,17 @@ Create an Angular application and integrate the Syncfusion® Angular Scheduler c
 
 ### Step 2: Enable WebMCP support
 
-Import the `WebMcpScheduler` module and inject it into the Scheduler to make WebMCP functionality available.
+Import the `WebMcpSchedulerService` module and inject it into the Scheduler to make WebMCP functionality available.
 
 ```typescript
 import { Component } from '@angular/core';
-import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpScheduler } from '@syncfusion/ej2-angular-schedule';
+import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpSchedulerService } from '@syncfusion/ej2-angular-schedule';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [ScheduleModule],
-  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpScheduler],
+  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpSchedulerService],
   template: `
   <ejs-schedule id="scheduler"></ejs-schedule>
   `
@@ -96,13 +96,13 @@ An AI assistant can discover these tools and invoke them based on user prompts.
 
 ```typescript
 import { Component } from '@angular/core';
-import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpScheduler } from '@syncfusion/ej2-angular-schedule';
+import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpSchedulerService } from '@syncfusion/ej2-angular-schedule';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [ScheduleModule],
-  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpScheduler],
+  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpSchedulerService],
   template: `
   <ejs-schedule id="scheduler" [enableWebMcp]="true"></ejs-schedule>
   `
@@ -122,13 +122,13 @@ Use the `webMcpSettings` property to customize how WebMCP tools are exposed to A
 
 ```typescript
 import { Component } from '@angular/core';
-import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpScheduler } from '@syncfusion/ej2-angular-schedule';
+import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpSchedulerService } from '@syncfusion/ej2-angular-schedule';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [ScheduleModule],
-  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpScheduler],
+  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpSchedulerService],
   template: `
   <ejs-schedule id="scheduler" [enableWebMcp]="true" [webMcpSettings]="webMcpSettings"></ejs-schedule>
   `
@@ -163,13 +163,13 @@ The `beforeWebMcpToolExecute` event exposes multiple properties that let applica
 
 ```typescript
 import { Component } from '@angular/core';
-import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpScheduler } from '@syncfusion/ej2-angular-schedule';
+import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpSchedulerService } from '@syncfusion/ej2-angular-schedule';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [ScheduleModule],
-  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpScheduler],
+  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpSchedulerService],
   template: `
   <ejs-schedule id="scheduler" [enableWebMcp]="true" [webMcpSettings]="webMcpSettings"
     (beforeWebMcpToolExecute)="beforeWebMcpToolExecute($event)">
