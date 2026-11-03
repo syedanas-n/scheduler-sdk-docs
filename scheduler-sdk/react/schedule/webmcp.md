@@ -67,7 +67,7 @@ import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject, WebMcpSc
 
 function App() {
   return (
-    <ScheduleComponent id="scheduler">
+    <ScheduleComponent>
       <Inject services={[Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler]} />
     </ScheduleComponent>
   );
@@ -97,7 +97,7 @@ import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject, WebMcpSc
 
 function App() {
   return (
-    <ScheduleComponent id="scheduler" enableWebMcp={true}>
+    <ScheduleComponent enableWebMcp={true}>
       <Inject services={[Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler]} />
     </ScheduleComponent>
   );
@@ -121,7 +121,7 @@ import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject, WebMcpSc
 
 function App() {
   return (
-    <ScheduleComponent id="scheduler"
+    <ScheduleComponent
       enableWebMcp={true}
       webMcpSettings={{
         name: 'planner',
@@ -174,7 +174,7 @@ function App() {
   };
 
   return (
-    <ScheduleComponent id="scheduler"
+    <ScheduleComponent
       enableWebMcp={true}
       webMcpSettings={{
         name: 'planner',
