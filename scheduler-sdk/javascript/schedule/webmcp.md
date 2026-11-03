@@ -86,8 +86,7 @@ ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkW
 
 var scheduleInstance = new ej.schedule.Schedule({
     width: '100%',
-    height: '650px',
-    views: ['Day', 'Week', 'WorkWeek', 'Month', 'Agenda']
+    height: '650px'
 });
 scheduleInstance.appendTo('#scheduler');
 ```
@@ -114,7 +113,6 @@ ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkW
 var scheduleInstance = new ej.schedule.Schedule({
     width: '100%',
     height: '650px',
-    views: ['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'],
     enableWebMcp: true
 });
 scheduleInstance.appendTo('#scheduler');
@@ -136,7 +134,6 @@ ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkW
 var scheduleInstance = new ej.schedule.Schedule({
     width: '100%',
     height: '650px',
-    views: ['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'],
     enableWebMcp: true,
     webMcpSettings: {
         name: 'planner',
@@ -172,7 +169,6 @@ ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkW
 var scheduleInstance = new ej.schedule.Schedule({
     width: '100%',
     height: '650px',
-    views: ['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'],
     enableWebMcp: true,
     webMcpSettings: {
         name: 'planner',

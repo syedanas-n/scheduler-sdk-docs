@@ -88,8 +88,7 @@ Schedule.Inject(Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler);
 
 let scheduleInstance: Schedule = new Schedule({
   width: '100%',
-  height: '650px',
-  views: ['Day', 'Week', 'WorkWeek', 'Month', 'Agenda']
+  height: '650px'
 });
 scheduleInstance.appendTo('#scheduler');
 ```
@@ -118,7 +117,6 @@ Schedule.Inject(Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler);
 let scheduleInstance: Schedule = new Schedule({
   width: '100%',
   height: '650px',
-  views: ['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'],
   enableWebMcp: true
 });
 scheduleInstance.appendTo('#scheduler');
@@ -142,7 +140,6 @@ Schedule.Inject(Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler);
 let scheduleInstance: Schedule = new Schedule({
   width: '100%',
   height: '650px',
-  views: ['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'],
   enableWebMcp: true,
   webMcpSettings: {
     name: 'planner',
@@ -180,7 +177,6 @@ Schedule.Inject(Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler);
 let scheduleInstance: Schedule = new Schedule({
   width: '100%',
   height: '650px',
-  views: ['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'],
   enableWebMcp: true,
   webMcpSettings: {
     name: 'planner',
