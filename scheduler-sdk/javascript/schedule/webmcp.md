@@ -182,7 +182,11 @@ The `beforeWebMcpToolExecute` event is triggered before a tool is executed. This
 
 > AI-generated requests should always be validated before executing write operations. Restrict access using `exposedTo` and perform additional authorization checks within `beforeWebMcpToolExecute` when modifying application data.
 
-When `args.showConfirmationDialog = true` is set inside the `beforeWebMcpToolExecute` event for any of the Scheduler's mutating tools (`createEvent`, `updateEvent`, and `deleteEvent`), a confirmation dialog is displayed before the operation is executed. The dialog summarizes the requested action so users can review what is about to happen and choose **Yes** or **No** before any changes are applied. This guardrail helps prevent unintended Scheduler data modifications by AI agents.
+The `beforeWebMcpToolExecute` event exposes multiple properties that let applications control how each tool is invoked:
+
+- `args.showConfirmationDialog = true` — Pops a confirmation dialog before the tool runs. Useful for risky write operations such as `deleteEvent` so the user can choose **Yes** or **No** before any changes are applied.
+- `args.cancel = true` — Cancels the tool invocation entirely. Use this to block tools you do not want to expose (for example `updateEvent`) based on application-specific rules.
+- `args.cancellationResponse` — Sets a custom message that the AI agent receives when the tool is cancelled. Use this to explain to the agent why the call was rejected so it can recover gracefully.
 
 ```html
 <!DOCTYPE html>
@@ -209,13 +213,16 @@ When `args.showConfirmationDialog = true` is set inside the `beforeWebMcpToolExe
                     exposedTo: ['https://www.syncfusion.com/']
                 },
                 beforeWebMcpToolExecute: function (args) {
-                    // Require user confirmation before any write operation
-                    if (
-                        args.toolName.indexOf('createEvent') !== -1 ||
-                        args.toolName.indexOf('updateEvent') !== -1 ||
-                        args.toolName.indexOf('deleteEvent') !== -1
-                    ) {
+                    // Ask the user to confirm before deleting an event
+                    if (args.toolName.indexOf('deleteEvent') !== -1) {
                         args.showConfirmationDialog = true;
+                    }
+
+                    // Reject updates outright and tell the agent why
+                    if (args.toolName.indexOf('updateEvent') !== -1) {
+                        args.cancel = true;
+                        args.cancellationResponse =
+                            'Modification of events is not allowed through WebMCP tools.';
                     }
                 }
             });
