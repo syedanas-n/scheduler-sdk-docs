@@ -60,7 +60,9 @@ Create an application and integrate the Syncfusion® JavaScript (ES5) Scheduler 
 
 ### Step 2: Enable WebMCP support
 
-Import the `WebMcpScheduler` module and inject it into the Scheduler to make WebMCP functionality available.
+Import the Scheduler view modules and inject them into the Scheduler to make WebMCP functionality available.
+
+The following HTML file places the Scheduler inside a `<div id="scheduler"></div>` element that the script below targets.
 
 ```html
 <!DOCTYPE html>
@@ -77,13 +79,15 @@ Import the `WebMcpScheduler` module and inject it into the Scheduler to make Web
         <div>
             <div id="scheduler"></div>
         </div>
-        <script>
-            ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda, ej.schedule.WebMcpScheduler);
-            var scheduleInstance = new ej.schedule.Schedule({});
-            scheduleInstance.appendTo('#scheduler');
-        </script>
     </body>
 </html>
+```
+
+```js
+ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda);
+
+var scheduleInstance = new ej.schedule.Schedule({});
+scheduleInstance.appendTo('#scheduler');
 ```
 
 ### Step 3: Register control tools
@@ -102,30 +106,13 @@ For example, a Scheduler control may expose tools such as:
 
 An AI assistant can discover these tools and invoke them based on user prompts.
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Essential JS 2</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <link href="https://cdn.syncfusion.com/ej2/34.2.2/bootstrap5.3.css" rel="stylesheet" type="text/css" />
-        <!-- Essential JS 2 all script -->
-        <script src="https://cdn.syncfusion.com/ej2/34.2.2/dist/ej2.min.js" type="text/javascript"></script>
-    </head>
-    <body>
-        <div>
-            <div id="scheduler"></div>
-        </div>
-        <script>
-            ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda, ej.schedule.WebMcpScheduler);
-            var scheduleInstance = new ej.schedule.Schedule({
-                enableWebMcp: true
-            });
-            scheduleInstance.appendTo('#scheduler');
-        </script>
-    </body>
-</html>
+```js
+ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda);
+
+var scheduleInstance = new ej.schedule.Schedule({
+    enableWebMcp: true
+});
+scheduleInstance.appendTo('#scheduler');
 ```
 
 ### Step 4: Customize tool registration
@@ -138,35 +125,18 @@ Use the `webMcpSettings` property to customize how WebMCP tools are exposed to A
 | `tools` | List of tool names to expose. Any supported tools not included in this list will not be registered. |
 | `exposedTo` | List of trusted domains that are allowed to interact with the control through WebMCP. |
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Essential JS 2</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <link href="https://cdn.syncfusion.com/ej2/34.2.2/bootstrap5.3.css" rel="stylesheet" type="text/css" />
-        <!-- Essential JS 2 all script -->
-        <script src="https://cdn.syncfusion.com/ej2/34.2.2/dist/ej2.min.js" type="text/javascript"></script>
-    </head>
-    <body>
-        <div>
-            <div id="scheduler"></div>
-        </div>
-        <script>
-            ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda, ej.schedule.WebMcpScheduler);
-            var scheduleInstance = new ej.schedule.Schedule({
-                enableWebMcp: true,
-                webMcpSettings: {
-                    name: 'planner',
-                    tools: ['createEvent', 'updateEvent', 'deleteEvent'],
-                    exposedTo: ['https://www.syncfusion.com/']
-                }
-            });
-            scheduleInstance.appendTo('#scheduler');
-        </script>
-    </body>
-</html>
+```js
+ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda);
+
+var scheduleInstance = new ej.schedule.Schedule({
+    enableWebMcp: true,
+    webMcpSettings: {
+        name: 'planner',
+        tools: ['createEvent', 'updateEvent', 'deleteEvent'],
+        exposedTo: ['https://www.syncfusion.com/']
+    }
+});
+scheduleInstance.appendTo('#scheduler');
 ```
 
 > Use the `exposedTo` property to restrict WebMCP access to trusted domains. This helps prevent unauthorized WebMCP clients from interacting with your control tools.
@@ -188,48 +158,31 @@ The `beforeWebMcpToolExecute` event exposes multiple properties that let applica
 - `args.cancel = true` — Cancels the tool invocation entirely. Use this to block tools you do not want to expose (for example `updateEvent`) based on application-specific rules.
 - `args.cancellationResponse` — Sets a custom message that the AI agent receives when the tool is cancelled. Use this to explain to the agent why the call was rejected so it can recover gracefully.
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Essential JS 2</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <link href="https://cdn.syncfusion.com/ej2/34.2.2/bootstrap5.3.css" rel="stylesheet" type="text/css" />
-        <!-- Essential JS 2 all script -->
-        <script src="https://cdn.syncfusion.com/ej2/34.2.2/dist/ej2.min.js" type="text/javascript"></script>
-    </head>
-    <body>
-        <div>
-            <div id="scheduler"></div>
-        </div>
-        <script>
-            ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda, ej.schedule.WebMcpScheduler);
-            var scheduleInstance = new ej.schedule.Schedule({
-                enableWebMcp: true,
-                webMcpSettings: {
-                    name: 'planner',
-                    tools: ['createEvent', 'updateEvent', 'deleteEvent'],
-                    exposedTo: ['https://www.syncfusion.com/']
-                },
-                beforeWebMcpToolExecute: function (args) {
-                    // Ask the user to confirm before deleting an event
-                    if (args.toolName.indexOf('deleteEvent') !== -1) {
-                        args.showConfirmationDialog = true;
-                    }
+```js
+ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda);
 
-                    // Reject updates outright and tell the agent why
-                    if (args.toolName.indexOf('updateEvent') !== -1) {
-                        args.cancel = true;
-                        args.cancellationResponse =
-                            'Modification of events is not allowed through WebMCP tools.';
-                    }
-                }
-            });
-            scheduleInstance.appendTo('#scheduler');
-        </script>
-    </body>
-</html>
+var scheduleInstance = new ej.schedule.Schedule({
+    enableWebMcp: true,
+    webMcpSettings: {
+        name: 'planner',
+        tools: ['createEvent', 'updateEvent', 'deleteEvent'],
+        exposedTo: ['https://www.syncfusion.com/']
+    },
+    beforeWebMcpToolExecute: function (args) {
+        // Ask the user to confirm before deleting an event
+        if (args.toolName.indexOf('deleteEvent') !== -1) {
+            args.showConfirmationDialog = true;
+        }
+
+        // Reject updates outright and tell the agent why
+        if (args.toolName.indexOf('updateEvent') !== -1) {
+            args.cancel = true;
+            args.cancellationResponse =
+                'Modification of events is not allowed through WebMCP tools.';
+        }
+    }
+});
+scheduleInstance.appendTo('#scheduler');
 ```
 
 > **Note:** `showConfirmationDialog` is supported only for write tools (`createEvent`, `updateEvent`, and `deleteEvent`) and is not applicable to navigation tools such as `changeView` and `navigateDate`.
