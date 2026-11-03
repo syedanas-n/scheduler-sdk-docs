@@ -64,20 +64,13 @@ Import the `WebMcpScheduler` module and inject it into the Scheduler to make Web
 
 ```html
 <template>
-  <ejs-schedule id="scheduler" width="100%" height="650px">
-    <e-views>
-      <e-view option="Day"></e-view>
-      <e-view option="Week"></e-view>
-      <e-view option="WorkWeek"></e-view>
-      <e-view option="Month"></e-view>
-      <e-view option="Agenda"></e-view>
-    </e-views>
+  <ejs-schedule id="scheduler">
   </ejs-schedule>
 </template>
 
 <script setup>
 import { provide } from 'vue';
-import { ScheduleComponent as EjsSchedule, ViewsDirective as EViews, ViewDirective as EView, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
+import { ScheduleComponent as EjsSchedule, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
 
 provide('schedule', [Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler]);
 </script>
@@ -101,20 +94,13 @@ An AI assistant can discover these tools and invoke them based on user prompts.
 
 ```html
 <template>
-  <ejs-schedule id="scheduler" width="100%" height="650px" :enableWebMcp="true">
-    <e-views>
-      <e-view option="Day"></e-view>
-      <e-view option="Week"></e-view>
-      <e-view option="WorkWeek"></e-view>
-      <e-view option="Month"></e-view>
-      <e-view option="Agenda"></e-view>
-    </e-views>
+  <ejs-schedule id="scheduler" :enableWebMcp="true">
   </ejs-schedule>
 </template>
 
 <script setup>
 import { provide } from 'vue';
-import { ScheduleComponent as EjsSchedule, ViewsDirective as EViews, ViewDirective as EView, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
+import { ScheduleComponent as EjsSchedule, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
 
 provide('schedule', [Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler]);
 </script>
@@ -132,21 +118,14 @@ Use the `webMcpSettings` property to customize how WebMCP tools are exposed to A
 
 ```html
 <template>
-  <ejs-schedule id="scheduler" width="100%" height="650px" :enableWebMcp="true"
+  <ejs-schedule id="scheduler" :enableWebMcp="true"
     :webMcpSettings="webMcpSettings">
-    <e-views>
-      <e-view option="Day"></e-view>
-      <e-view option="Week"></e-view>
-      <e-view option="WorkWeek"></e-view>
-      <e-view option="Month"></e-view>
-      <e-view option="Agenda"></e-view>
-    </e-views>
   </ejs-schedule>
 </template>
 
 <script setup>
 import { provide } from 'vue';
-import { ScheduleComponent as EjsSchedule, ViewsDirective as EViews, ViewDirective as EView, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
+import { ScheduleComponent as EjsSchedule, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
 
 provide('schedule', [Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler]);
 
@@ -179,21 +158,14 @@ The `beforeWebMcpToolExecute` event exposes multiple properties that let applica
 
 ```html
 <template>
-  <ejs-schedule id="scheduler" width="100%" height="650px" :enableWebMcp="true"
+  <ejs-schedule id="scheduler" :enableWebMcp="true"
     :webMcpSettings="webMcpSettings" :beforeWebMcpToolExecute="beforeWebMcpToolExecute">
-    <e-views>
-      <e-view option="Day"></e-view>
-      <e-view option="Week"></e-view>
-      <e-view option="WorkWeek"></e-view>
-      <e-view option="Month"></e-view>
-      <e-view option="Agenda"></e-view>
-    </e-views>
   </ejs-schedule>
 </template>
 
 <script setup>
 import { provide } from 'vue';
-import { ScheduleComponent as EjsSchedule, ViewsDirective as EViews, ViewDirective as EView, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
+import { ScheduleComponent as EjsSchedule, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
 
 provide('schedule', [Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler]);
 

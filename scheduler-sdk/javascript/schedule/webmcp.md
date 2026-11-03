@@ -85,8 +85,6 @@ Import the `WebMcpScheduler` module and inject it into the Scheduler to make Web
 ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda, ej.schedule.WebMcpScheduler);
 
 var scheduleInstance = new ej.schedule.Schedule({
-    width: '100%',
-    height: '650px'
 });
 scheduleInstance.appendTo('#scheduler');
 ```
@@ -111,8 +109,6 @@ An AI assistant can discover these tools and invoke them based on user prompts.
 ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda, ej.schedule.WebMcpScheduler);
 
 var scheduleInstance = new ej.schedule.Schedule({
-    width: '100%',
-    height: '650px',
     enableWebMcp: true
 });
 scheduleInstance.appendTo('#scheduler');
@@ -132,8 +128,6 @@ Use the `webMcpSettings` property to customize how WebMCP tools are exposed to A
 ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda, ej.schedule.WebMcpScheduler);
 
 var scheduleInstance = new ej.schedule.Schedule({
-    width: '100%',
-    height: '650px',
     enableWebMcp: true,
     webMcpSettings: {
         name: 'planner',
@@ -167,8 +161,6 @@ The `beforeWebMcpToolExecute` event exposes multiple properties that let applica
 ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda, ej.schedule.WebMcpScheduler);
 
 var scheduleInstance = new ej.schedule.Schedule({
-    width: '100%',
-    height: '650px',
     enableWebMcp: true,
     webMcpSettings: {
         name: 'planner',

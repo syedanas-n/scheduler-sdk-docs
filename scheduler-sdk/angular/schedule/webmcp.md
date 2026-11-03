@@ -72,7 +72,7 @@ import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService,
   imports: [ScheduleModule],
   providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpSchedulerService],
   template: `
-  <ejs-schedule id="scheduler" width="100%" height="650px"></ejs-schedule>
+  <ejs-schedule id="scheduler"></ejs-schedule>
   `
 })
 export class AppComponent {}
@@ -104,7 +104,7 @@ import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService,
   imports: [ScheduleModule],
   providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpSchedulerService],
   template: `
-  <ejs-schedule id="scheduler" width="100%" height="650px" [enableWebMcp]="true"></ejs-schedule>
+  <ejs-schedule id="scheduler" [enableWebMcp]="true"></ejs-schedule>
   `
 })
 export class AppComponent {}
@@ -130,7 +130,7 @@ import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService,
   imports: [ScheduleModule],
   providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpSchedulerService],
   template: `
-  <ejs-schedule id="scheduler" width="100%" height="650px" [enableWebMcp]="true"
+  <ejs-schedule id="scheduler" [enableWebMcp]="true"
     [webMcpSettings]="webMcpSettings"></ejs-schedule>
   `
 })
@@ -172,7 +172,7 @@ import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService,
   imports: [ScheduleModule],
   providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, WebMcpSchedulerService],
   template: `
-  <ejs-schedule id="scheduler" width="100%" height="650px" [enableWebMcp]="true"
+  <ejs-schedule id="scheduler" [enableWebMcp]="true"
     [webMcpSettings]="webMcpSettings" (beforeWebMcpToolExecute)="beforeWebMcpToolExecute($event)"></ejs-schedule>
   `
 })
