@@ -60,9 +60,7 @@ Create an application and integrate the Syncfusion® JavaScript (ES5) Scheduler 
 
 ### Step 2: Enable WebMCP support
 
-Import the Scheduler view modules and inject them into the Scheduler to make WebMCP functionality available.
-
-The following HTML file places the Scheduler inside a `<div id="scheduler"></div>` element that the script below targets.
+Import the `WebMcpScheduler` module and inject it into the Scheduler to make WebMCP functionality available.
 
 ```html
 <!DOCTYPE html>
@@ -84,7 +82,7 @@ The following HTML file places the Scheduler inside a `<div id="scheduler"></div
 ```
 
 ```js
-ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda);
+ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda, ej.schedule.WebMcpScheduler);
 
 var scheduleInstance = new ej.schedule.Schedule({});
 scheduleInstance.appendTo('#scheduler');
@@ -107,7 +105,7 @@ For example, a Scheduler control may expose tools such as:
 An AI assistant can discover these tools and invoke them based on user prompts.
 
 ```js
-ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda);
+ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda, ej.schedule.WebMcpScheduler);
 
 var scheduleInstance = new ej.schedule.Schedule({
     enableWebMcp: true
@@ -126,7 +124,7 @@ Use the `webMcpSettings` property to customize how WebMCP tools are exposed to A
 | `exposedTo` | List of trusted domains that are allowed to interact with the control through WebMCP. |
 
 ```js
-ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda);
+ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda, ej.schedule.WebMcpScheduler);
 
 var scheduleInstance = new ej.schedule.Schedule({
     enableWebMcp: true,
@@ -159,7 +157,7 @@ The `beforeWebMcpToolExecute` event exposes multiple properties that let applica
 - `args.cancellationResponse` — Sets a custom message that the AI agent receives when the tool is cancelled. Use this to explain to the agent why the call was rejected so it can recover gracefully.
 
 ```js
-ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda);
+ej.schedule.Schedule.Inject(ej.schedule.Day, ej.schedule.Week, ej.schedule.WorkWeek, ej.schedule.Month, ej.schedule.Agenda, ej.schedule.WebMcpScheduler);
 
 var scheduleInstance = new ej.schedule.Schedule({
     enableWebMcp: true,

@@ -60,9 +60,7 @@ Create an application using the Essential® JS 2 webpack quickstart and add the 
 
 ### Step 2: Enable WebMCP support
 
-Import the Scheduler view modules and inject them into the Scheduler to make WebMCP functionality available.
-
-The following HTML file places the Scheduler inside a `<div id="scheduler"></div>` element that the script below targets.
+Import the `WebMcpScheduler` module and inject it into the Scheduler to make WebMCP functionality available.
 
 ```html
 <!DOCTYPE html>
@@ -84,9 +82,9 @@ The following HTML file places the Scheduler inside a `<div id="scheduler"></div
 ```
 
 ```ts
-import { Schedule, Day, Week, WorkWeek, Month, Agenda } from '@syncfusion/ej2-schedule';
+import { Schedule, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-schedule';
 
-Schedule.Inject(Day, Week, WorkWeek, Month, Agenda);
+Schedule.Inject(Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler);
 
 let scheduleInstance: Schedule = new Schedule({});
 scheduleInstance.appendTo('#scheduler');
@@ -109,9 +107,9 @@ For example, a Scheduler control may expose tools such as:
 An AI assistant can discover these tools and invoke them based on user prompts.
 
 ```ts
-import { Schedule, Day, Week, WorkWeek, Month, Agenda } from '@syncfusion/ej2-schedule';
+import { Schedule, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-schedule';
 
-Schedule.Inject(Day, Week, WorkWeek, Month, Agenda);
+Schedule.Inject(Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler);
 
 let scheduleInstance: Schedule = new Schedule({
   enableWebMcp: true
@@ -130,9 +128,9 @@ Use the `webMcpSettings` property to customize how WebMCP tools are exposed to A
 | `exposedTo` | List of trusted domains that are allowed to interact with the control through WebMCP. |
 
 ```ts
-import { Schedule, Day, Week, WorkWeek, Month, Agenda } from '@syncfusion/ej2-schedule';
+import { Schedule, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-schedule';
 
-Schedule.Inject(Day, Week, WorkWeek, Month, Agenda);
+Schedule.Inject(Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler);
 
 let scheduleInstance: Schedule = new Schedule({
   enableWebMcp: true,
@@ -165,9 +163,9 @@ The `beforeWebMcpToolExecute` event exposes multiple properties that let applica
 - `args.cancellationResponse` — Sets a custom message that the AI agent receives when the tool is cancelled. Use this to explain to the agent why the call was rejected so it can recover gracefully.
 
 ```ts
-import { Schedule, Day, Week, WorkWeek, Month, Agenda } from '@syncfusion/ej2-schedule';
+import { Schedule, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-schedule';
 
-Schedule.Inject(Day, Week, WorkWeek, Month, Agenda);
+Schedule.Inject(Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler);
 
 let scheduleInstance: Schedule = new Schedule({
   enableWebMcp: true,
