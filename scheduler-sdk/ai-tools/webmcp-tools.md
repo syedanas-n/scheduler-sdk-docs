@@ -85,7 +85,7 @@ WebMCP integrates seamlessly into Syncfusion Scheduler applications across all m
 
 Agents read the current view, list events on a given day, and summarize what is on the calendar via natural language prompts.
 
-Example: "Switch to the Week view and show me today's events."
+Example: "Navigate to April 8, 2026 and switch the Scheduler to Month view."
 
 ### Automated Event Management
 
@@ -97,7 +97,7 @@ Example: "Create a new event called Design Review tomorrow from 10 AM to 11 AM."
 
 Move between dates and switch between Day, Week, Month, and Timeline views.
 
-Example: "Navigate to April 8, 2026 and switch the Scheduler to Month view."
+Example: "Delete the Design Review event."
 
 ## Supported Features
 
@@ -128,7 +128,6 @@ Vague Prompt Example:
 - **Be Specific** — Include exact event titles, start and end times, and view names
 - **Provide Context** — Mention the current view, target date, or business objective
 - **One Goal at a Time** — Complex prompts may confuse the AI; break them into steps
-- **Use ISO 8601 Dates** — Pass dates in ISO 8601 format (for example `2026-04-08T09:00:00`) so the AI can address them unambiguously
 - **Reference Items Clearly** — Use specific event titles or subjects instead of vague references
 
 ## Limitations

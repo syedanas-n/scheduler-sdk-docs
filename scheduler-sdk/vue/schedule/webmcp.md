@@ -60,7 +60,7 @@ Create a Vue Vite application and integrate the Syncfusion® Vue Scheduler compo
 
 ### Step 2: Enable WebMCP support
 
-The Scheduler's WebMCP integration is loaded automatically when `enableWebMcp` is `true`, so no extra module import or injection is required. Import the Vue Scheduler wrapper and its required view modules as usual.
+Import the `WebMcpScheduler` module and inject it into the Scheduler to make WebMCP functionality available.
 
 ```html
 <template>
@@ -68,7 +68,10 @@ The Scheduler's WebMCP integration is loaded automatically when `enableWebMcp` i
 </template>
 
 <script setup>
-import { ScheduleComponent as EjsSchedule } from '@syncfusion/ej2-vue-schedule';
+import { provide } from 'vue';
+import { ScheduleComponent as EjsSchedule, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
+
+provide('schedule', [WebMcpScheduler]);
 </script>
 ```
 
@@ -94,7 +97,10 @@ An AI assistant can discover these tools and invoke them based on user prompts.
 </template>
 
 <script setup>
-import { ScheduleComponent as EjsSchedule } from '@syncfusion/ej2-vue-schedule';
+import { provide } from 'vue';
+import { ScheduleComponent as EjsSchedule, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
+
+provide('schedule', [WebMcpScheduler]);
 </script>
 ```
 
@@ -114,11 +120,14 @@ Use the `webMcpSettings` property to customize how WebMCP tools are exposed to A
 </template>
 
 <script setup>
-import { ScheduleComponent as EjsSchedule } from '@syncfusion/ej2-vue-schedule';
+import { provide } from 'vue';
+import { ScheduleComponent as EjsSchedule, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
+
+provide('schedule', [WebMcpScheduler]);
 
 const webMcpSettings = {
   name: 'planner',
-  tools: ['createEvent', 'updateEvent', 'deleteEvent', 'changeView', 'navigateDate'],
+  tools: ['createEvent', 'updateEvent', 'deleteEvent'],
   exposedTo: ['https://www.syncfusion.com/']
 };
 </script>
@@ -134,9 +143,10 @@ The `beforeWebMcpToolExecute` event is triggered before a tool is executed. This
 - Validate incoming requests.
 - Cancel tool execution when necessary.
 - Apply custom business rules and security policies.
-- Set `args.showConfirmationDialog = true` for mutating tools (`createEvent`, `updateEvent`, `deleteEvent`) to prompt the user before the Scheduler writes to its event pipeline.
 
 > AI-generated requests should always be validated before executing write operations. Restrict access using `exposedTo` and perform additional authorization checks within `beforeWebMcpToolExecute` when modifying application data.
+
+When `args.showConfirmationDialog = true` is set inside the `beforeWebMcpToolExecute` event for any of the Scheduler's mutating tools (`createEvent`, `updateEvent`, and `deleteEvent`), a confirmation dialog is displayed before the operation is executed. The dialog summarizes the requested action so users can review what is about to happen and choose **Yes** or **No** before any changes are applied. This guardrail helps prevent unintended Scheduler data modifications by AI agents.
 
 ```html
 <template>
@@ -146,23 +156,24 @@ The `beforeWebMcpToolExecute` event is triggered before a tool is executed. This
 </template>
 
 <script setup>
-import { ScheduleComponent as EjsSchedule } from '@syncfusion/ej2-vue-schedule';
+import { provide } from 'vue';
+import { ScheduleComponent as EjsSchedule, WebMcpScheduler } from '@syncfusion/ej2-vue-schedule';
+
+provide('schedule', [WebMcpScheduler]);
 
 const webMcpSettings = {
   name: 'planner',
-  tools: ['createEvent', 'updateEvent', 'deleteEvent', 'changeView', 'navigateDate'],
+  tools: ['createEvent', 'updateEvent', 'deleteEvent'],
   exposedTo: ['https://www.syncfusion.com/']
 };
 const beforeWebMcpToolExecute = (args) => {
-  // Example business rule: block writes outside business hours
-  if (args.toolName.includes('createEvent') || args.toolName.includes('updateEvent') || args.toolName.includes('deleteEvent')) {
-    const hour = new Date().getHours();
-    if (hour < 9 || hour > 17) {
-      args.cancel = true;
-      console.log(
-        'Schedule changes are allowed only between 9:00 AM and 5:00 PM.'
-      );
-    }
+  // Require user confirmation before any write operation
+  if (
+    args.toolName.includes('createEvent') ||
+    args.toolName.includes('updateEvent') ||
+    args.toolName.includes('deleteEvent')
+  ) {
+    args.showConfirmationDialog = true;
   }
 };
 </script>
@@ -170,7 +181,7 @@ const beforeWebMcpToolExecute = (args) => {
 
 ## Scheduler WebMCP tools
 
-The Syncfusion® Scheduler component exposes 5 tools that enable AI agents to manage calendar events, switch between views, and navigate dates through natural language prompts.
+The Syncfusion® Scheduler component exposes 5 tools that enable AI agents to manage calendar events, switch between views, and navigate dates through natural language prompts. Explore the Syncfusion® Vue Scheduler component with WebMCP integration through this [demo](https://demos.syncfusion.com/scheduler-sdk/webmcp-integration/index.html).
 
 | Tool Name | Description |
 |-----------|-------------|
@@ -187,8 +198,10 @@ The Syncfusion® Scheduler component exposes 5 tools that enable AI agents to ma
 - Configure `exposedTo` to limit access to trusted domains.
 - Monitor tool activity through the `beforeWebMcpToolExecute` event.
 - Apply application-specific validation before executing tool operations.
-- Pass dates in ISO 8601 format (`2026-04-08T09:00:00`) so AI agents can address them unambiguously.
-- Confirm mutating operations by setting `args.showConfirmationDialog = true` in `beforeWebMcpToolExecute` for `createEvent`, `updateEvent`, and `deleteEvent`.
+
+## Explore the demo
+
+Explore the Syncfusion® Vue Scheduler component with WebMCP integration through this [demo](https://demos.syncfusion.com/scheduler-sdk/webmcp-integration/index.html).
 
 ## Next steps
 

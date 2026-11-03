@@ -60,13 +60,13 @@ Create an application using the Essential® JS 2 webpack quickstart and add the 
 
 ### Step 2: Enable WebMCP support
 
-The Scheduler's WebMCP integration is loaded automatically when `enableWebMcp` is `true`, so no extra module injection is required. Import the `Schedule` component and its required view modules as usual.
+Import the `WebMcpScheduler` module and inject it into the Scheduler to make WebMCP functionality available.
 
 ```ts
-import { Schedule, Day, Week, WorkWeek, Month, Agenda } from '@syncfusion/ej2-schedule';
+import { Schedule, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-schedule';
 import './style.css';
 
-Schedule.Inject(Day, Week, WorkWeek, Month, Agenda);
+Schedule.Inject(Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler);
 
 let scheduleInstance: Schedule = new Schedule({});
 scheduleInstance.appendTo('#scheduler');
@@ -89,10 +89,10 @@ For example, a Scheduler control may expose tools such as:
 An AI assistant can discover these tools and invoke them based on user prompts.
 
 ```ts
-import { Schedule, Day, Week, WorkWeek, Month, Agenda } from '@syncfusion/ej2-schedule';
+import { Schedule, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-schedule';
 import './style.css';
 
-Schedule.Inject(Day, Week, WorkWeek, Month, Agenda);
+Schedule.Inject(Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler);
 
 let scheduleInstance: Schedule = new Schedule({
   enableWebMcp: true
@@ -111,16 +111,16 @@ Use the `webMcpSettings` property to customize how WebMCP tools are exposed to A
 | `exposedTo` | List of trusted domains that are allowed to interact with the control through WebMCP. |
 
 ```ts
-import { Schedule, Day, Week, WorkWeek, Month, Agenda } from '@syncfusion/ej2-schedule';
+import { Schedule, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-schedule';
 import './style.css';
 
-Schedule.Inject(Day, Week, WorkWeek, Month, Agenda);
+Schedule.Inject(Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler);
 
 let scheduleInstance: Schedule = new Schedule({
   enableWebMcp: true,
   webMcpSettings: {
     name: 'planner',
-    tools: ['createEvent', 'updateEvent', 'deleteEvent', 'changeView', 'navigateDate'],
+    tools: ['createEvent', 'updateEvent', 'deleteEvent'],
     exposedTo: ['https://www.syncfusion.com/']
   }
 });
@@ -137,31 +137,32 @@ The `beforeWebMcpToolExecute` event is triggered before a tool is executed. This
 - Validate incoming requests.
 - Cancel tool execution when necessary.
 - Apply custom business rules and security policies.
-- Set `args.showConfirmationDialog = true` for mutating tools (`createEvent`, `updateEvent`, `deleteEvent`) to prompt the user before the Scheduler writes to its event pipeline.
 
 > AI-generated requests should always be validated before executing write operations. Restrict access using `exposedTo` and perform additional authorization checks within `beforeWebMcpToolExecute` when modifying application data.
 
+When `args.showConfirmationDialog = true` is set inside the `beforeWebMcpToolExecute` event for any of the Scheduler's mutating tools (`createEvent`, `updateEvent`, and `deleteEvent`), a confirmation dialog is displayed before the operation is executed. The dialog summarizes the requested action so users can review what is about to happen and choose **Yes** or **No** before any changes are applied. This guardrail helps prevent unintended Scheduler data modifications by AI agents.
+
 ```ts
-import { Schedule, Day, Week, WorkWeek, Month, Agenda } from '@syncfusion/ej2-schedule';
+import { Schedule, Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler } from '@syncfusion/ej2-schedule';
 import './style.css';
 
-Schedule.Inject(Day, Week, WorkWeek, Month, Agenda);
+Schedule.Inject(Day, Week, WorkWeek, Month, Agenda, WebMcpScheduler);
 
 let scheduleInstance: Schedule = new Schedule({
   enableWebMcp: true,
   webMcpSettings: {
     name: 'planner',
-    tools: ['createEvent', 'updateEvent', 'deleteEvent', 'changeView', 'navigateDate'],
+    tools: ['createEvent', 'updateEvent', 'deleteEvent'],
     exposedTo: ['https://www.syncfusion.com/']
   },
   beforeWebMcpToolExecute: (args: any) => {
-    // Example business rule: block writes outside business hours
-    if (args.toolName.includes('createEvent') || args.toolName.includes('updateEvent') || args.toolName.includes('deleteEvent')) {
-      const hour: number = new Date().getHours();
-      if (hour < 9 || hour > 17) {
-        args.cancel = true;
-        console.log('Schedule changes are allowed only between 9:00 AM and 5:00 PM.');
-      }
+    // Require user confirmation before any write operation
+    if (
+      args.toolName.includes('createEvent') ||
+      args.toolName.includes('updateEvent') ||
+      args.toolName.includes('deleteEvent')
+    ) {
+      args.showConfirmationDialog = true;
     }
   }
 });
@@ -170,7 +171,7 @@ scheduleInstance.appendTo('#scheduler');
 
 ## Scheduler WebMCP tools
 
-The Syncfusion® Scheduler control exposes 5 tools that enable AI agents to manage calendar events, switch between views, and navigate dates through natural language prompts.
+The Syncfusion® Scheduler control exposes 5 tools that enable AI agents to manage calendar events, switch between views, and navigate dates through natural language prompts. Explore the Syncfusion® JavaScript Scheduler control with WebMCP integration through this [demo](https://demos.syncfusion.com/scheduler-sdk/webmcp-integration/index.html).
 
 | Tool Name | Description |
 |-----------|-------------|
@@ -187,8 +188,10 @@ The Syncfusion® Scheduler control exposes 5 tools that enable AI agents to mana
 - Configure `exposedTo` to limit access to trusted domains.
 - Monitor tool activity through the `beforeWebMcpToolExecute` event.
 - Apply application-specific validation before executing tool operations.
-- Pass dates in ISO 8601 format (`2026-04-08T09:00:00`) so AI agents can address them unambiguously.
-- Confirm mutating operations by setting `args.showConfirmationDialog = true` in `beforeWebMcpToolExecute` for `createEvent`, `updateEvent`, and `deleteEvent`.
+
+## Explore the demo
+
+Explore the Syncfusion® JavaScript Scheduler control with WebMCP integration through this [demo](https://demos.syncfusion.com/scheduler-sdk/webmcp-integration/index.html).
 
 ## Next steps
 
