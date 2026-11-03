@@ -176,6 +176,8 @@ let scheduleInstance: Schedule = new Schedule({
 scheduleInstance.appendTo('#scheduler');
 ```
 
+> **Note:** `showConfirmationDialog` is supported only for write tools (`createEvent`, `updateEvent`, and `deleteEvent`) and is not applicable to navigation tools such as `changeView` and `navigateDate`.
+
 ## Scheduler WebMCP tools
 
 The Syncfusion® Scheduler control exposes 5 tools that enable AI agents to manage calendar events, switch between views, and navigate dates through natural language prompts. Explore the Syncfusion® JavaScript Scheduler control with WebMCP integration through this [demo](https://demos.syncfusion.com/scheduler-sdk/webmcp-integration/index.html).
