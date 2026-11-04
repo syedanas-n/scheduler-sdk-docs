@@ -19,14 +19,14 @@ WebMCP is a proposed web standard that enables web applications to expose functi
 - **Input/Output Schemas** — JSON Schema definitions describing parameters and return values
 - **Execution Context** — Direct function invocation without DOM manipulation or UI simulation
 
-### Key Concepts
+### Key concepts
 
 - **Tool**: A JavaScript function with schema definitions that agents can invoke
 - **ModelContext**: The browser API (`document.modelContext`) that manages tool registration and invocation
 - **Schema**: JSON Schema definitions describing tool inputs, outputs, and constraints
 - **Agent**: An autonomous assistant (LLM-powered) that can understand goals and invoke registered tools to accomplish tasks
 
-### Browser Support
+### Browser support
 
 WebMCP is currently available:
 
@@ -38,11 +38,11 @@ For local development, enable **WebMCP for testing** via `chrome://flags/`.
 
 > Note: WebMCP is an experimental browser standard. The API and behavior may change as the standard evolves. The Syncfusion Scheduler WebMCP integration is a preview feature.
 
-## Why Use WebMCP for Scheduler?
+## Why use WebMCP for Scheduler?
 
 Syncfusion Scheduler integration with WebMCP provides significant benefits for building AI-powered calendar applications:
 
-### Key Benefits
+### Key benefits
 
 - **Universal Tool Access** — AI agents, LLMs, and any MCP-compatible client can discover and invoke scheduling operations
 - **Zero Custom Integration** — Set `enableWebMcp: true` and all tool registration, schema binding, and life cycle management is automatic. The Scheduler's WebMcp module loads itself when the property is enabled
@@ -52,11 +52,11 @@ Syncfusion Scheduler integration with WebMCP provides significant benefits for b
 - **Native Integration** — Write tools participate in the Scheduler's built-in event pipelines (create, update, delete) and clean up automatically on component destruction
 - **Real-Time Feedback** — Tools return immediate structured responses so agents can confirm or chain the next action
 
-## How WebMCP Works in Scheduler
+## How WebMCP works in Scheduler
 
 Understanding how WebMCP processes your request helps you write better prompts and get more reliable results.
 
-### The Six-Stage Pipeline
+### The six-stage pipeline
 
 When you invoke a WebMCP tool, the following happens behind the scenes:
 
@@ -71,7 +71,7 @@ When you invoke a WebMCP tool, the following happens behind the scenes:
 
 WebMCP integrates seamlessly into Syncfusion Scheduler applications across all major platforms. Choose your framework below to get started with platform-specific setup instructions, API references, code examples, and sample prompts.
 
-### Supported Platforms
+### Supported platforms
 
 - [WebMCP Integration for React Scheduler](../react/schedule/webmcp) — React-based Scheduler
 - [WebMCP Integration for Angular Scheduler](../angular/schedule/webmcp) — Angular-based Scheduler
@@ -79,7 +79,7 @@ WebMCP integrates seamlessly into Syncfusion Scheduler applications across all m
 - [WebMCP Integration for TypeScript Scheduler](../typescript/schedule/webmcp) — TypeScript/ES6 Scheduler
 - [WebMCP Integration for JavaScript Scheduler](../javascript/schedule/webmcp) — Vanilla JavaScript/ES5 Scheduler
 
-## Common Use Cases
+## Common use cases
 
 ### AI-Assisted Schedule Browsing
 
