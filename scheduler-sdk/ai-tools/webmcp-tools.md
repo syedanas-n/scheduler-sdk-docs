@@ -81,25 +81,25 @@ WebMCP integrates seamlessly into Syncfusion Scheduler applications across all m
 
 ## Common use cases
 
-### AI-Assisted Schedule Browsing
+### AI-Assisted schedule browsing
 
 Agents read the current view, list events on a given day, and summarize what is on the calendar via natural language prompts.
 
 Example: "Navigate to April 8, 2026 and switch the Scheduler to Month view."
 
-### Automated Event Management
+### Automated event management
 
 Create, update, and delete calendar entries through conversational commands.
 
 Example: "Create a new event called Design Review tomorrow from 10 AM to 11 AM."
 
-### Calendar Navigation and View Switching
+### Calendar navigation and view switching
 
 Move between dates and switch between Day, Week, Month, and Timeline views.
 
 Example: "Delete the Design Review event."
 
-## Supported Features
+## Supported features
 
 WebMCP tools for the Scheduler are organized into the following categories:
 
@@ -111,7 +111,7 @@ WebMCP tools for the Scheduler are organized into the following categories:
 
 For the complete tool reference, see the [WebMCP Tools](../react/schedule/webmcp#scheduler-webmcp-tools) section in the platform integration guides.
 
-## Writing Effective Prompts
+## Writing effective prompts
 
 AI responses are only as good as the prompt you provide. Vague requests like "fix this" give the AI very little context. More specific prompts produce reliable, accurate results.
 
@@ -123,7 +123,7 @@ Vague Prompt Example:
 
 "add an event"
 
-### Tips for Effective Prompts
+### Tips for effective prompts
 
 - **Be Specific** — Include exact event titles, start and end times, and view names
 - **Provide Context** — Mention the current view, target date, or business objective
@@ -137,7 +137,7 @@ Vague Prompt Example:
 - **Prompt clarity affects result quality** — The AI interprets your request literally, so output quality depends directly on how clearly the prompt is written.
 - **Experimental status** — WebMCP is a preview standard. APIs and browser support may change as the specification evolves.
 
-## See Also
+## See also
 
 - [Official WebMCP Specification](https://github.com/webmachinelearning/webmcp)
 - [Chrome Developer Documentation](https://developer.chrome.com/docs/ai/webmcp/)
