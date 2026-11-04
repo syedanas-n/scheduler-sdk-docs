@@ -202,7 +202,7 @@ export class AppComponent {
 
 ## Scheduler WebMCP tools
 
-The Syncfusion® Scheduler component exposes 5 tools that enable AI agents to manage calendar events, switch between views, and navigate dates through natural language prompts. Explore the Syncfusion® Angular Scheduler component with WebMCP integration through this [demo](https://demos.syncfusion.com/scheduler-sdk/webmcp-integration/index.html).
+The Syncfusion® Scheduler component exposes 5 tools that enable AI agents to manage calendar events, switch between views, and navigate dates through natural language prompts.
 
 | Tool Name | Description |
 |-----------|-------------|

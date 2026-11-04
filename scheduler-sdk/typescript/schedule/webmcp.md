@@ -196,7 +196,7 @@ scheduleInstance.appendTo('#scheduler');
 
 ## Scheduler WebMCP tools
 
-The Syncfusion® Scheduler control exposes 5 tools that enable AI agents to manage calendar events, switch between views, and navigate dates through natural language prompts. Explore the Syncfusion® JavaScript Scheduler control with WebMCP integration through this [demo](https://demos.syncfusion.com/scheduler-sdk/webmcp-integration/index.html).
+The Syncfusion® Scheduler control exposes 5 tools that enable AI agents to manage calendar events, switch between views, and navigate dates through natural language prompts.
 
 | Tool Name | Description |
 |-----------|-------------|
