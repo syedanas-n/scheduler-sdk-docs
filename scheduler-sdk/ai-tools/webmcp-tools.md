@@ -11,7 +11,7 @@ documentation: ug
 
 **WebMCP** (Model Context Protocol) brings AI automation capabilities directly into the Syncfusion® Scheduler. Instead of AI agents attempting to read the DOM or simulate user clicks, web pages explicitly declare their capabilities through structured tool definitions — giving agents reliable, deterministic ways to interact with applications.
 
-## What is WebMCP?
+## What is WebMCP tools?
 
 WebMCP is a proposed web standard that enables web applications to expose functionality as structured tools that AI agents can invoke directly. Each tool includes:
 
